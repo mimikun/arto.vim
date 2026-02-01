@@ -1,0 +1,80 @@
+*arto.txt*	Open Markdown files in Arto
+
+Author:  Alisue <lambdalisue@gmail.com>
+License: MIT license
+
+=============================================================================
+CONTENTS						*arto-contents*
+
+INTRODUCTION				|arto-introduction|
+INTERFACE				|arto-interface|
+  VARIABLE				|arto-variable|
+  COMMAND				|arto-command|
+  FUNCTION				|arto-function|
+
+
+=============================================================================
+INTRODUCTION						*arto-introduction*
+
+*vim-arto* is a Vim/Neovim plugin to open Markdown files in Arto, a native
+macOS Markdown reader application.
+
+https://github.com/arto-app
+
+
+=============================================================================
+INTERFACE						*arto-interface*
+
+-----------------------------------------------------------------------------
+VARIABLE						*arto-variable*
+
+*g:arto_path*
+	Path to the Arto application bundle.
+	Default: "/Applications/Arto.app"
+
+	The plugin resolves the executable as:
+	  {g:arto_path}/Contents/MacOS/arto
+
+	Example:
+>
+	let g:arto_path = '/Applications/Arto.app'
+<
+
+-----------------------------------------------------------------------------
+COMMAND							*arto-command*
+
+:Arto [{path} ...]					*:Arto*
+	Open one or more Markdown files in Arto.
+
+	Each {path} is expanded as a Vim expression (e.g. |expand()| is
+	applied) and passed to Arto.
+
+	If no {path} is given, the current file (|%:p|) is used.
+
+	Examples:
+>
+	:Arto
+	:Arto %:p
+	:Arto ~/Documents/notes.md
+	:Arto file1.md file2.md file3.md
+<
+
+:ArtoVersion						*:ArtoVersion*
+	Show the version of the Arto executable.
+
+
+-----------------------------------------------------------------------------
+FUNCTION						*arto-function*
+
+arto#open([{expr} ...])					*arto#open()*
+	Open one or more files in Arto.
+
+	If no argument is given, the current file is used.
+	Each {expr} is expanded via |expand()| and passed to Arto.
+
+arto#version()						*arto#version()*
+	Display the version of the Arto executable.
+
+
+=============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl:
