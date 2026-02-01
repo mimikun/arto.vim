@@ -5,7 +5,7 @@ A Vim/Neovim plugin to open Markdown files in [Arto](https://github.com/arto-app
 ## Requirements
 
 - Vim 9.0+ or Neovim 0.10+
-- [Arto.app](https://github.com/arto-app) installed at `/Applications/Arto.app` (configurable)
+- [Arto.app](https://github.com/arto-app) v0.15.0+ installed at `/Applications/Arto.app` (configurable)
 
 ## Installation
 

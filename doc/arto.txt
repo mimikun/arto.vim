@@ -16,8 +16,8 @@ INTERFACE				|arto-interface|
 =============================================================================
 INTRODUCTION						*arto-introduction*
 
-*arto.vim* is a Vim/Neovim plugin to open Markdown files in Arto, a native
-macOS Markdown reader application.
+*arto.vim* is a Vim/Neovim plugin to open Markdown files in Arto (v0.15.0+),
+a native macOS Markdown reader application.
 
 https://github.com/arto-app
 
