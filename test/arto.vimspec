@@ -1,0 +1,32 @@
+Describe arto
+  It loads plugin
+    Assert exists('g:loaded_arto')
+  End
+
+  It defines :Arto command
+    Assert exists(':Arto')
+  End
+
+  It defines :ArtoVersion command
+    Assert exists(':ArtoVersion')
+  End
+
+  It sets default g:arto_path
+    Assert Equals(g:arto_path, '/Applications/Arto.app')
+  End
+
+  It does not throw on missing executable
+    let g:arto_path = '/nonexistent/path'
+    call arto#open()
+    call arto#open('foo.md')
+    call arto#open('foo.md', 'bar.md')
+    call arto#version()
+    let g:arto_path = '/Applications/Arto.app'
+  End
+
+  It does not throw on unnamed buffer
+    enew
+    call arto#open()
+    bwipeout
+  End
+End
