@@ -1,4 +1,4 @@
-# vim-arto
+# arto.vim
 
 A Vim/Neovim plugin to open Markdown files in [Arto](https://github.com/arto-app), a native macOS Markdown reader.
 
@@ -14,13 +14,13 @@ Use your favorite plugin manager.
 For [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'arto-app/vim-arto'
+Plug 'arto-app/arto.vim'
 ```
 
 For [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{ 'arto-app/vim-arto' }
+{ 'arto-app/arto.vim' }
 ```
 
 ## Usage
