@@ -11,8 +11,12 @@ Describe arto
     Assert exists(':ArtoVersion')
   End
 
-  It sets default g:arto_path
-    Assert Equals(g:arto_path, '/Applications/Arto.app')
+  It sets default g:arto_path based on OS
+    if has('mac')
+      Assert Equals(g:arto_path, '/Applications/Arto.app')
+    else
+      Assert Equals(g:arto_path, 'arto')
+    endif
   End
 
   It does not throw on missing executable
@@ -21,7 +25,11 @@ Describe arto
     call arto#open('foo.md')
     call arto#open('foo.md', 'bar.md')
     call arto#version()
-    let g:arto_path = '/Applications/Arto.app'
+    if has('mac')
+      let g:arto_path = '/Applications/Arto.app'
+    else
+      let g:arto_path = 'arto'
+    endif
   End
 
   It does not throw on unnamed buffer
