@@ -18,8 +18,12 @@ function! arto#version() abort
 endfunction
 
 function! s:executable() abort
-  let l:app = get(g:, 'arto_path', '/Applications/Arto.app')
-  let l:arto = l:app . '/Contents/MacOS/arto'
+  if has('mac')
+    let l:app = get(g:, 'arto_path', '/Applications/Arto.app')
+    let l:arto = l:app . '/Contents/MacOS/arto'
+  else
+    let l:arto = get(g:, 'arto_path', 'arto')
+  endif
   if !executable(l:arto)
     echohl WarningMsg
     echomsg printf('[arto] Executable not found: %s', l:arto)

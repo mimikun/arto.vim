@@ -1,11 +1,13 @@
 # arto.vim
 
-A Vim/Neovim plugin to open Markdown files in [Arto](https://github.com/arto-app), a native macOS Markdown reader.
+A Vim/Neovim plugin to open Markdown files in [Arto](https://github.com/arto-app), a Markdown reader application. Supports macOS and Linux.
 
 ## Requirements
 
 - Vim 9.0+ or Neovim 0.10+
-- [Arto.app](https://github.com/arto-app) v0.15.0+ installed at `/Applications/Arto.app` (configurable)
+- [Arto](https://github.com/arto-app) v0.15.0+
+  - macOS: installed at `/Applications/Arto.app` (configurable via `g:arto_path`)
+  - Linux: `arto` command available in `$PATH` (configurable via `g:arto_path`)
 
 ## Installation
 
@@ -36,8 +38,11 @@ For [lazy.nvim](https://github.com/folke/lazy.nvim):
 ### Configuration
 
 ```vim
-" Path to the Arto application bundle (default: '/Applications/Arto.app')
+" macOS (default: '/Applications/Arto.app')
 let g:arto_path = '/Applications/Arto.app'
+
+" Linux (default: 'arto')
+let g:arto_path = 'arto'
 ```
 
 ## License
