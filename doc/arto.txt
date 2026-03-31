@@ -16,10 +16,12 @@ INTERFACE				|arto-interface|
 =============================================================================
 INTRODUCTION						*arto-introduction*
 
-*arto.vim* is a Vim/Neovim plugin to open Markdown files in Arto (v0.15.0+),
+*arto.vim* is a Neovim plugin to open Markdown files in Arto (v0.15.0+),
 a Markdown reader application. Supports macOS and Linux.
 
 https://github.com/arto-app
+
+Requirements: Neovim 0.10+
 
 
 =============================================================================
@@ -41,14 +43,15 @@ VARIABLE						*arto-variable*
 	  The plugin uses {g:arto_path} directly as the executable
 	  path.
 
-	Examples:
->
-	" macOS
-	let g:arto_path = '/Applications/Arto.app'
-
-	" Linux
-	let g:arto_path = 'arto'
-	let g:arto_path = '/usr/local/bin/arto'
+	Examples (Vimscript):
+>vim
+	let g:arto_path = '/Applications/Arto.app'  " macOS
+	let g:arto_path = '/usr/local/bin/arto'     " Linux
+<
+	Examples (Lua):
+>lua
+	vim.g.arto_path = '/Applications/Arto.app'  -- macOS
+	vim.g.arto_path = '/usr/local/bin/arto'     -- Linux
 <
 
 -----------------------------------------------------------------------------
@@ -63,7 +66,7 @@ COMMAND							*arto-command*
 	If no {path} is given, the current file (|%:p|) is used.
 
 	Examples:
->
+>vim
 	:Arto
 	:Arto %:p
 	:Arto ~/Documents/notes.md
@@ -77,13 +80,15 @@ COMMAND							*arto-command*
 -----------------------------------------------------------------------------
 FUNCTION						*arto-function*
 
-arto#open([{expr} ...])					*arto#open()*
+Lua module `arto` exposes the following functions:
+
+require('arto').open([{expr} ...])			*arto.open()*
 	Open one or more files in Arto.
 
 	If no argument is given, the current file is used.
 	Each {expr} is expanded via |expand()| and passed to Arto.
 
-arto#version()						*arto#version()*
+require('arto').version()				*arto.version()*
 	Display the version of the Arto executable.
 
 
